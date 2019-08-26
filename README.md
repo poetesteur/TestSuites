@@ -1,2 +1,2 @@
 # RobotFramework
-contient les scripts de tests
+contient les scripts de tests de dolibart
