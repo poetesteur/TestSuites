@@ -3,7 +3,7 @@ Library           SeleniumLibrary
 
 *** Variables ***
 @{username}       Aline    Anna    Loc
-@{pwd}            123    123    123
+${password}       123
 
 *** Test Cases ***
 Connexion
@@ -32,7 +32,7 @@ ConnexionDataDriven
 ConnexionBoucle
     [Tags]    Data
     Open browser    http://localhost/dolibarr/    chrome
-    :FOR    ${ELEMENT}    IN    @{username}
+    : FOR    ${ELEMENT}    IN    @{username}
     \    Log    ${ELEMENT}
     \    Connec    ${ELEMENT}
     Close All Browsers
@@ -51,3 +51,9 @@ Connec
     Click Element    xpath=//*[@id="topmenu-login-dropdown"]/a/img
     Click Element    xpath=//*[@id="topmenu-login-dropdown"]/div/div[3]/div[2]/a
     Element Should Be Visible    xpath=//*[@id="login_line2"]/input
+
+ConnexionDataDrivenMDP
+    [Tags]    Data    3
+    @{pwd}[0]
+    @{pwd}[1]
+    @{pwd}[2]
