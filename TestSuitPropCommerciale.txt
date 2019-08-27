@@ -8,6 +8,7 @@ ${client}         Client_1
 ${duree}          30
 ${fournisseur}    Fournisseur_1
 ${erreur}         Le champ 'Fournisseur' est obligatoire
+${BROWSER}		  %{BROWSER}
 
 *** Test Cases ***
 CT-SN-Nouvelle-proposition-commerciale
@@ -18,7 +19,7 @@ CT-SN-Nouvelle-proposition-commerciale
     #Post-conditions : la proposition est créée
     #Résultat attendu : la fiche proposition clonable et supprimable s’affiche
     # Connexion
-    Open Browser    http://localhost/dolibarr/index.php    Chrome
+    Open Browser    http://localhost/dolibarr/index.php    ${BROWSER}
     Input Text    //*[@id="username"]    ${login}
     Input Text    //*[@id="password"]    ${password}
     Click Button    //*[@id="login_line2"]/input
@@ -57,7 +58,7 @@ CT-SN-Nouvelle-demande-prix
     #Post-conditions : le demande de prix est créée
     #Résultat attendu : la fiche demande s’affiche, clonable et supprimable
     # Connexion
-    Open Browser    http://localhost/dolibarr/index.php    Chrome
+    Open Browser    http://localhost/dolibarr/index.php    ${BROWSER}
     Input Text    //*[@id="username"]    ${login}
     Input Text    //*[@id="password"]    ${password}
     Click Button    //*[@id="login_line2"]/input
@@ -93,7 +94,7 @@ CT-SE-Nouvelle-demande-prix
     #Post-conditions : la demande n’est pas créée
     #Résultat attendu : Le système affiche un message d’erreur ‘champ supplier obligatoire ‘
     # Connexion
-    Open Browser    http://localhost/dolibarr/index.php    Chrome
+    Open Browser    http://localhost/dolibarr/index.php    ${BROWSER}
     Input Text    //*[@id="username"]    ${login}
     Input Text    //*[@id="password"]    ${password}
     Click Button    //*[@id="login_line2"]/input
