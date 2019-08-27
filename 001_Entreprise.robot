@@ -4,11 +4,10 @@ Library           SeleniumLibrary
 *** Variables ***
 ${login}          admin
 ${password}       admin
-${browser}        %{browser}
 
 *** Test Cases ***
 CT-Connexion
-    Open browser    http://localhost/    ${browser}
+    Open browser    http://localhost/    chrome
     Click Element    xpath=//*[@id="username"]
     Input Text    xpath=//*[@id="username"]    ${login}
     Textfield Value Should Be    xpath=//*[@id="username"]    ${login}
