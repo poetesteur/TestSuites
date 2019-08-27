@@ -99,6 +99,5 @@ CT-SE-creer-client
     Sleep    1s
 
 CT-Deconnexion
-    Click Element    //*[@id="topmenu-login-dropdown"]
-    Click Element    //*[@id="topmenu-login-dropdown"]/div/div[3]/div[2]/a
+    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[4]/div
     Element Should Be Visible    xpath=//*[@id="login_line2"]/input
