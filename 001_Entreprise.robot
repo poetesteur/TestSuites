@@ -7,7 +7,7 @@ ${password}       admin
 
 *** Test Cases ***
 CT-Connexion
-    Open browser    192.168.0.16    chrome
+    Open browser    http://192.168.0.16    chrome
     Sleep    2s
     Click Element    xpath=//*[@id="username"]
     Input Text    xpath=//*[@id="username"]    ${login}
