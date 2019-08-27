@@ -4,10 +4,11 @@ Library           SeleniumLibrary
 *** Variables ***
 ${login}          admin
 ${password}       admin
+${browser}        %{browser}
 
 *** Test Cases ***
 CT-Connexion
-    Open browser    http://localhost/dolibarr/    chrome
+    Open browser    http://localhost/dolibarr/    ${browser}
     Location Should Be    http://localhost/dolibarr/
     Click Element    xpath=//*[@id="username"]
     Input Text    xpath=//*[@id="username"]    ${login}
@@ -19,16 +20,11 @@ CT-Connexion
 
 CT-SN-creer-prospect
     [Documentation]    CT-SN-Créer Prospect
-    ...    Préconditions
-    ...    : être connecté à Dolibarr en tant qu’administrateur
-    ...    Données entrées
-    ...    : ‘Nom du tiers’, ‘prospect/client’, ‘fournisseur’
-    ...    Données sorties
-    ...    : Fiche tiers
-    ...    Post-condition
-    ...    : Le système affiche la fiche du Tiers avec données entrées
-    ...    Résultat attendu
-    ...    : Le Prospect_1 est créé dans B
+    ...    Préconditions : être connecté à Dolibarr en tant qu’administrateur
+    ...    Données entrées : ‘Nom du tiers’, ‘prospect/client’, ‘fournisseur’
+    ...    Données sorties : Fiche tiers
+    ...    Post-condition : Le système affiche la fiche du Tiers avec données entrées
+    ...    Résultat attendu : Le Prospect_1 est créé dans BDD
     # Clique sur Tiers dans le bandeau ; vérification que la bonne page est chargée
     Click Element    //*[@id="mainmenua_companies"]
     Sleep    1s
@@ -49,16 +45,11 @@ CT-SN-creer-prospect
 
 CT-SN-creer-client
     [Documentation]    CT-SN-Créer Client
-    ...    Préconditions
-    ...    : être connecté à Dolibarr en tant qu’administrateur
-    ...    Données entrées
-    ...    : ‘Nom du tiers’, ‘prospect/client’, ‘fournisseur’
-    ...    Données sorties
-    ...    : Fiche tiers
-    ...    Post-condition
-    ...    : Le système affiche la fiche du Tiers avec données entrées
-    ...    Résultat attendu
-    ...    : Le Client_1 est créé dans B
+    ...    Préconditions : être connecté à Dolibarr en tant qu’administrateur
+    ...    Données entrées : ‘Nom du tiers’, ‘prospect/client’, ‘fournisseur’
+    ...    Données sorties : Fiche tiers
+    ...    Post-condition : Le système affiche la fiche du Tiers avec données entrées
+    ...    Résultat attendu : Le Client_1 est créé dans BDD
     Click Element    //*[@id="id-left"]/div/div[4]/div[3]/a
     Input Text    //*[@id="name"]    Client_1
     # Selection par index Client/Prospect: 3=Client
@@ -73,16 +64,11 @@ CT-SN-creer-client
 
 CT-SN-creer-fournisseur
     [Documentation]    CT-SN-Créer Fournisseur
-    ...    Préconditions
-    ...    : être connecté à Dolibarr en tant qu’administrateur
-    ...    Données entrées
-    ...    : ‘Nom du tiers’, ‘prospect/client’, ‘fournisseur’
-    ...    Données sorties
-    ...    : Fiche tiers
-    ...    Post-condition
-    ...    : Le système affiche la fiche du Tiers avec données entrées
-    ...    Résultat attendu
-    ...    : Le Fournisseur_1 est créé dans B
+    ...    Préconditions : être connecté à Dolibarr en tant qu’administrateur
+    ...    Données entrées : ‘Nom du tiers’, ‘prospect/client’, ‘fournisseur’
+    ...    Données sorties : Fiche tiers
+    ...    Post-condition : Le système affiche la fiche du Tiers avec données entrées
+    ...    Résultat attendu : Le Fournisseur_1 est créé dans BDD
     Click Element    //*[@id="mainmenua_companies"]
     Click Element    //*[@id="id-left"]/div/div[4]/div[3]/a
     Input Text    //*[@id="name"]    Fournisseur_1
@@ -92,23 +78,17 @@ CT-SN-creer-fournisseur
     Select From List By Index    //*[@id="fournisseur"]    1
     Click Element    //*[@id="id-right"]/div/form/div[3]/input[1]
     Sleep    1s
-    ## Après création du client-fournisseur, vérification que l'élément 'Code Fournisseur' est présent, puis vérification du type de tiers (Client)
+    # Après création du client-fournisseur, vérification que l'élément 'Code Fournisseur' est présent, puis vérification du type de tiers (Client)
     Element Should Be Visible    //*[@id="id-right"]/div/div[2]/div[3]/div[1]/table/tbody/tr[4]/td[1]
     Element Should Contain    //*[@id="id-right"]/div/div[2]/div[3]/div[1]/table/tbody/tr[1]/td[2]    Client
 
 CT-SE-creer-client
     [Documentation]    CT-SE Créer client
-    ...    Préconditions
-    ...    : être connecté à Dolibarr en tant qu’administrateur
-    ...    Données entrées
-    ...    : ‘prospect/client’, ’fournisseur’
-    ...    Données sorties
-    ...    :
-    ...    Message d’erreur
-    ...    Post-condition
-    ...    : Le système demande un ‘Nom du tiers’S
-    ...    Résultat attendu
-    ...    : Le Tiers n’est pas créé, le système reste en attente
+    ...    Préconditions : être connecté à Dolibarr en tant qu’administrateur
+    ...    Données entrées : ‘prospect/client’, ’fournisseur’
+    ...    Données sorties : Message d’erreur
+    ...    Post-condition : Le système demande un ‘Nom du tiers’
+    ...    Résultat attendu : Le Tiers n’est pas créé, le système reste en attente
     Click Element    //*[@id="mainmenua_companies"]
     Click Element    //*[@id="id-left"]/div/div[4]/div[3]/a
     # Pour ce CT d'exception, on laisse le champ Nom vide
