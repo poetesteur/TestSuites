@@ -8,6 +8,7 @@ ${password}       admin
 *** Test Cases ***
 CT-Connexion
     Open browser    http://localhost/    chrome
+    Sleep    2s
     Click Element    xpath=//*[@id="username"]
     Input Text    xpath=//*[@id="username"]    ${login}
     Textfield Value Should Be    xpath=//*[@id="username"]    ${login}
