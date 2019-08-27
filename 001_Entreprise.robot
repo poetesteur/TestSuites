@@ -8,15 +8,13 @@ ${browser}        %{browser}
 
 *** Test Cases ***
 CT-Connexion
-    Open browser    http://localhost/dolibarr/    ${browser}
-    Location Should Be    http://localhost/dolibarr/
+    Open browser    http://localhost/    ${browser}
     Click Element    xpath=//*[@id="username"]
     Input Text    xpath=//*[@id="username"]    ${login}
     Textfield Value Should Be    xpath=//*[@id="username"]    ${login}
     Click Element    xpath=//*[@id="password"]
     Input Password    xpath=//*[@id="password"]    ${password}
     Click Button    xpath=//*[@id="login_line2"]/input
-    Location Should Be    http://localhost/dolibarr/admin/index.php?mainmenu=home&leftmenu=setup&mesg=setupnotcomplete
 
 CT-SN-creer-prospect
     [Documentation]    CT-SN-Créer Prospect
