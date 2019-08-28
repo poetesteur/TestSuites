@@ -42,12 +42,13 @@ CT-SN-creer-contrat
     # Validation du contrat
     Click Element    //*[@id="id-right"]/div/div[3]/div[1]/a
     Sleep    2s
-    Click Element    //*[@id="mainbody"]/div[17]/div[3]/div/button[1]
+    Click Button    //*[@id="mainbody"]/div[14]/div[3]/div/button[1]
     #    Vérification de la présence du bouton modifier (apparait seulement si le contrat est validé)
     Element Should Be Visible    //*[@id="id-right"]/div/div[3]/div[2]/a
     # Suppression du contrat
     Click Element    //*[@id="id-right"]/div/div[3]/div[8]/a
-    Click Element    //*[@id="mainbody"]/div[20]/div[3]/div/button[1]
+    Sleep    2s
+    Click Element    //*[@id="mainbody"]/div[17]/div[3]/div/button[1]
     Page Should Not Contain    Client_01
 
 CT-SE-creer-contrat
@@ -69,6 +70,5 @@ CT-SE-creer-contrat
     Sleep    1s
 
 CT-Deconnexion
-    Click Element    //*[@id="topmenu-login-dropdown"]/a/img
-    Click Element    //*[@id="topmenu-login-dropdown"]/div/div[3]/div[2]/a
+    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[4]/div/a/span
     Element Should Be Visible    xpath=//*[@id="login_line2"]/input
