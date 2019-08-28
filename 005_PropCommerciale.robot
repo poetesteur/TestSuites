@@ -8,6 +8,7 @@ ${client}         Client_1
 ${duree}          30
 ${fournisseur}    Fournisseur_1
 ${erreur}         Le champ 'Fournisseur' est obligatoire
+${BROWSER}        chrome
 
 *** Test Cases ***
 CT-SN-Nouvelle-proposition-commerciale
@@ -18,20 +19,20 @@ CT-SN-Nouvelle-proposition-commerciale
     #Post-conditions : la proposition est créée
     #Résultat attendu : la fiche proposition clonable et supprimable s’affiche
     # Connexion
-    Open Browser    http://192.168.0.16    chrome
+    Open Browser    http://192.168.0.16/index.php    ${BROWSER}
     Input Text    //*[@id="username"]    ${login}
     Input Text    //*[@id="password"]    ${password}
     Click Button    //*[@id="login_line2"]/input
-    Location Should Be    http://localhost/dolibarr/index.php?mainmenu=home
+    # Vérifier que la page d'accueil s'ouvre
+    Location Should Be    http://192.168.0.16/index.php?mainmenu=home
     # Créer proposition commerciale avec Client_1
     # Cliquer sur l'onglet Commercial
     Click Element    //*[@id="mainmenua_commercial"]/span
     # Vérifier que la page du menu commercial s'ouvre
-    Location Should Be    http://localhost/dolibarr/comm/index.php?mainmenu=commercial&leftmenu=
+    Location Should Be    http://192.168.0.16/comm/index.php?mainmenu=commercial&leftmenu=
     # Cliquer sur nouvelle proposition commerciale
     Click Element    //*[@id="id-left"]/div/div[4]/div[3]/a
     # Vérifier que la page de formulaire de nouvelle proposition commerciale s'ouvre
-    Location Should Be    http://localhost/dolibarr/comm/propal/card.php?action=create&leftmenu=propals
     # Saisies des champs obligatoires
     Click Element    //*[@id="id-right"]/div/form/div[2]/table/tbody/tr[3]/td[2]/span/span[1]/span
     Input Text    //*[@id="mainbody"]/span/span/span[1]/input    ${client}
@@ -43,10 +44,9 @@ CT-SN-Nouvelle-proposition-commerciale
     Element Should Be Visible    //*[@id="id-right"]/div/div[3]/div[1]/a
     Element Should Be Enabled    //*[@id="id-right"]/div/div[3]/div[2]/a
     # Deconnexion
-    Click Element    //*[@id="topmenu-login-dropdown"]/a
-    Click Element    //*[@id="topmenu-login-dropdown"]/div/div[3]/div[2]/a
+    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[4]/div/a/span
     # Vérifier que la page de login s'ouvre
-    Location Should Be    http://localhost/dolibarr/index.php
+    Location Should Be    http://192.168.0.16/index.php
     Close All Browsers
 
 CT-SN-Nouvelle-demande-prix
@@ -57,20 +57,20 @@ CT-SN-Nouvelle-demande-prix
     #Post-conditions : le demande de prix est créée
     #Résultat attendu : la fiche demande s’affiche, clonable et supprimable
     # Connexion
-    Open Browser    http://192.168.0.16    chrome
+    Open Browser    http://192.168.0.16/index.php    ${BROWSER}
     Input Text    //*[@id="username"]    ${login}
     Input Text    //*[@id="password"]    ${password}
     Click Button    //*[@id="login_line2"]/input
-    Location Should Be    http://localhost/dolibarr/index.php?mainmenu=home
+    # Vérifier que la page d'accueil s'ouvre
+    Location Should Be    http://192.168.0.16/index.php?mainmenu=home
     # Créer nouvelle demande prix
     # Cliquer sur l'onglet Commercial
     Click Element    //*[@id="mainmenua_commercial"]/span
     # Vérifier que la page du menu commercial s'ouvre
-    Location Should Be    http://localhost/dolibarr/comm/index.php?mainmenu=commercial&leftmenu=
+    Location Should Be    http://192.168.0.16/comm/index.php?mainmenu=commercial&leftmenu=
     # Cliquer sur nouvelle demande de prix
     Click Element    //*[@id="id-left"]/div/div[9]/div[3]/a
     # Vérifier que la page de formulaire de nouvelle demandede prix s'ouvre
-    Location Should Be    http://localhost/dolibarr/supplier_proposal/card.php?action=create&leftmenu=supplier_proposals&idmenu=22
     # Sélectionner le fournisseur
     Click Element    //*[@id="id-right"]/div/form/div[2]/table/tbody/tr[2]/td[2]/span/span[1]/span/span[2]
     Input Text    //*[@id="mainbody"]/span/span/span[1]/input    ${fournisseur}
@@ -80,10 +80,10 @@ CT-SN-Nouvelle-demande-prix
     # Vérifier que la demande est créée et que la page de fiche de demande est ouverte
     Element Should Be Visible    //*[@id="comm"]
     # Deconnexion
-    Click Element    //*[@id="topmenu-login-dropdown"]/a
-    Click Element    //*[@id="topmenu-login-dropdown"]/div/div[3]/div[2]/a
+    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[4]/div/a/span
     # Vérifier que la page de login s'ouvre
-    Location Should Be    http://localhost/dolibarr/index.php
+    Location Should Be    http://192.168.0.16/index.php
+    Close All Browsers
 
 CT-SE-Nouvelle-demande-prix
     #[Documentation]
@@ -93,20 +93,20 @@ CT-SE-Nouvelle-demande-prix
     #Post-conditions : la demande n’est pas créée
     #Résultat attendu : Le système affiche un message d’erreur ‘champ supplier obligatoire ‘
     # Connexion
-    Open Browser    http://192.168.0.16    chrome
+    Open Browser    http://192.168.0.16    ${BROWSER}
     Input Text    //*[@id="username"]    ${login}
     Input Text    //*[@id="password"]    ${password}
     Click Button    //*[@id="login_line2"]/input
-    Location Should Be    http://localhost/dolibarr/index.php?mainmenu=home
+    # Vérifier que la page d'accueil s'ouvre
+    Location Should Be    http://192.168.0.16/index.php?mainmenu=home
     # Créer nouvelle demande prix
     # Cliquer sur l'onglet Commercial
     Click Element    //*[@id="mainmenua_commercial"]/span
     # Vérifier que la page du menu commercial s'ouvre
-    Location Should Be    http://localhost/dolibarr/comm/index.php?mainmenu=commercial&leftmenu=
+    Location Should Be    http://192.168.0.16/comm/index.php?mainmenu=commercial&leftmenu=
     # Cliquer sur nouvelle demande de prix
     Click Element    //*[@id="id-left"]/div/div[9]/div[3]/a
     # Vérifier que la page de formulaire de nouvelle demandede prix s'ouvre
-    Location Should Be    http://localhost/dolibarr/supplier_proposal/card.php?action=create&leftmenu=supplier_proposals&idmenu=22
     # Valider la demande de prix sans remplir le champ obligatoire
     Click Button    //*[@id="id-right"]/div/form/div[3]/input[1]
     # Vérifier que le message d'erreur apparaît
@@ -116,7 +116,7 @@ CT-SE-Nouvelle-demande-prix
     # Attendre que le message d'erreur ait disparu
     Sleep    2s
     # Deconnexion
-    Click Element    //*[@id="topmenu-login-dropdown"]/a
-    Click Element    //*[@id="topmenu-login-dropdown"]/div/div[3]/div[2]/a
+    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[4]/div/a/span
     # Vérifier que la page de login s'ouvre
-    Location Should Be    http://localhost/dolibarr/index.php
+    Location Should Be    http://192.168.0.16/index.php
+    Close All Browsers
