@@ -12,7 +12,7 @@ ${produit}        produit_1
 
 *** Test Cases ***
 connexion
-    Open browser    http://192.168.0.16    chrome
+    Open browser    http://192.168.0.16/    chrome
     Click element    Xpath=//*[@id="username"]
     Input Text    Xpath=//*[@id="username"]    ${UserName}
     Click element    Xpath=//*[@id="login_right"]
@@ -27,26 +27,14 @@ CT-SN-creer-compte-bancaire
     ...    Post-condition: Le compte est créé, le système affiche la 'fiche' du compte
     Click Element    //*[@id="mainmenutd_bank"]/div/a[1]/div
     Click Element    //*[@id="id-left"]/div/div[4]/div[3]/a
-    Click Element    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[1]/td[2]/input
-    Input Text    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[1]/td[2]/input    ccp
+    #ref
+    Click element    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[1]/td[2]/input
+    input text    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[1]/td[2]/input    compte_1
+    #libelle
     Click Element    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[2]/td[2]/input
-    Input Text    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[2]/td[2]/input    ${ccp}
-    Click Element    //*[@id="type"]
-    Click Element    //*[@id="type"]/option[1]
-    Click Element    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[4]/td[2]/span/span[1]/span/span[2]
-    Click Element    //*[@id="mainbody"]/span/span/span[1]/input
-    Input Text    //*[@id="mainbody"]/span/span/span[1]/input    euros
-    Press Key    //*[@id="mainbody"]/span/span/span[1]/input    \\13
-    Click Element    //*[@id="clos"]
-    Click Element    //*[@id="clos"]/option[1]
-    Click Element    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[6]/td[2]/span/span[1]/span/span[2]
-    Click Element    //*[@id="mainbody"]/span/span/span[1]/input
-    Input Text    //*[@id="mainbody"]/span/span/span[1]/input    france
-    Click Element    //*[@id="id-right"]/div/form/div[2]/table[4]/tbody/tr[1]/td[2]/span/span[1]/span/span[2]
-    Click Element    //*[@id="mainbody"]/span/span/span[1]/input
-    Input Text    //*[@id="mainbody"]/span/span/span[1]/input    1
-    Press Key    //*[@id="mainbody"]/span/span/span[1]/input    \\13
-    Click Element    //*[@id="id-right"]/div/form/div[3]/input[1]
+    Input Text    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[2]/td[2]/input    compte_1
+    #créer button
+    Click element    //*[@id="id-right"]/div/form/div[3]/input[1]
     Sleep    2s
     Page should contain    \    Compte
     Page should contain    \    Fiche
@@ -92,13 +80,13 @@ CT-SN-creer-facture-client
     Click Element    //*[@id="id-right"]/div/div[3]/div[1]/a
     # Vérifier que la fenetre confirmation s'ouvre
     Sleep    2s
-    Element Text Should Be    //*[@id="ui-id-1"]    Valider facture
+    Page should contain    \    Valider
     # Confirmer la validation de facture
-    Click Button    //*[@id="mainbody"]/div[21]/div[3]/div/button[1]
+    Click Button    //*[@id="mainbody"]/div[16]/div[3]/div/button[1]
     # Vérifier que la facture passe en status impayée
     Element text Should Be    //*[@id="id-right"]/div/div[2]/div[1]/div/div[2]    Impayée
 
-CT-SN-validation
+CT-SN-reglement-facture
     [Documentation]    Postcondition: avoir une facture impayée, avoir un compte créé
     ...    données entrées: date, mode de reglement, compte a créditer, montant réglement
     ...    donées sortie:
@@ -113,11 +101,10 @@ CT-SN-validation
     Click Element    //*[@id="reButtonNow"]    #date
     Click Element    //*[@id="selectpaiementcode"]    #moderéglement
     Click Element    //*[@id="selectpaiementcode"]/option[3]
-    Click Element    //*[@id="selectaccountid"]
-    Click Element    //*[@id="selectaccountid"]/option[3]    #compte_1
+    Click Element    //*[@id="payment_form"]/div[3]/input[2]
     #montant réglé
-    Click Element    //*[@id="payment_form"]/table/tbody/tr[2]/td[12]/input[1]
-    Input Text    //*[@id="payment_form"]/table/tbody/tr[2]/td[12]/input[1]    120
+    Click Element    //*[@id="payment_form"]/table/tbody/tr[2]/td[12]/input[2]
+    Input Text    //*[@id="payment_form"]/table/tbody/tr[2]/td[12]/input[2]    120
     Click Element    //*[@id="payment_form"]/div[3]/input[2]
     #valider paiement
     Click Element    //*[@id="payment_form"]/table[2]/tbody/tr[3]/td[3]/input
@@ -149,5 +136,4 @@ CT-SE-creer-facture-client
     Sleep    2s
 
 deconnexion
-    Click Element    //*[@id="topmenu-login-dropdown"]/a
-    Click Link    //*[@id="topmenu-login-dropdown"]/div/div[3]/div[2]/a
+    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[4]/div/a/span

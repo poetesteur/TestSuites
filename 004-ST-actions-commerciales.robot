@@ -8,7 +8,7 @@ ${pwd}            admin
 
 *** Test Cases ***
 connexion-admin
-    Open browser    http://localhost/dolibarr/index.php    chrome
+    Open browser    http://192.168.0.16/    chrome
     Click element    Xpath=//*[@id="username"]
     Input Text    Xpath=//*[@id="username"]    ${UserName}
     Click element    Xpath=//*[@id="login_right"]
@@ -59,9 +59,8 @@ CT-SE-nouvelle_commande_client
     Click Element    //*[@id="id-right"]/div/form/div[3]/input[1]
     #message erreur
     Page Should Contain Element    //*[@id="mainbody"]/div[7]/div/div[2]
-     Click Element    //*[@id="mainbody"]/div[7]/div/a
+    Click Element    //*[@id="mainbody"]/div[7]/div/a
     Sleep    1s
 
 deconnexion
-    Click Element    //*[@id="topmenu-login-dropdown"]/a/img
-    Click Link    //*[@id="topmenu-login-dropdown"]/div/div[3]/div[2]/a
+    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[4]/div/a/span
