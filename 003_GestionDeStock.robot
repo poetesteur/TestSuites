@@ -47,7 +47,7 @@ CT-SE-CreerStockProduit
     Click Element    //*[@id="id-left"]/div/div[3]/div[3]/a
     Input Text    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[2]/td[2]/input    P1
     Click Element    //*[@id="id-right"]/div/form/div[3]/input[1]
-    Page should contain    Le champ 'Réf.' est obligatoire
+    Page should contain    Ref
 
 CT-SN-TransfererStock
     #Menu produit
