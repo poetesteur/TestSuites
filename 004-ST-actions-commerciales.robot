@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Teardown    Close All Browsers
+Suite Teardown
 Library           SeleniumLibrary
 
 *** Variables ***
