@@ -7,7 +7,7 @@ ${password}       admin
 
 *** Test Cases ***
 CT-Connexion
-    Open browser    http://192.168.0.40/dolibarr/    chrome
+    Open browser    http://192.168.0.18/dolibarr    chrome
     Sleep    2s
     Click Element    xpath=//*[@id="username"]
     Input Text    xpath=//*[@id="username"]    ${login}
@@ -58,7 +58,7 @@ CT-SN-creer-client
     Sleep    1s
     # Après création du client, vérification du nom puis du type de tiers (Client)
     Element Should Contain    //*[@id="id-right"]/div/div[2]/div[1]/div/div[4]    Client_1
-    Element Should Contain    //*[@id="id-right"]/div/div[2]/div[3]/div[1]/table/tbody/tr[1]/td[2]    Customer
+    Element Should Contain    //*[@id="id-right"]/div/div[2]/div[3]/div[1]/table/tbody/tr[1]/td[2]    Client
 
 CT-SN-creer-fournisseur
     [Documentation]    CT-SN-Créer Fournisseur
@@ -78,7 +78,7 @@ CT-SN-creer-fournisseur
     Sleep    1s
     # Après création du client-fournisseur, vérification que l'élément 'Code Fournisseur' est présent, puis vérification du type de tiers (Client)
     Element Should Be Visible    //*[@id="id-right"]/div/div[2]/div[3]/div[1]/table/tbody/tr[4]/td[1]
-    Element Should Contain    //*[@id="id-right"]/div/div[2]/div[3]/div[1]/table/tbody/tr[1]/td[2]    Customer
+    Element Should Contain    //*[@id="id-right"]/div/div[2]/div[3]/div[1]/table/tbody/tr[1]/td[2]    Client
 
 CT-SE-creer-client
     [Documentation]    CT-SE Créer client
