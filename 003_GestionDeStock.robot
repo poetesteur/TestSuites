@@ -9,7 +9,7 @@ ${RefProduit}     PDT-01
 
 *** Test Cases ***
 CT-SN-01-Connexion
-    Open Browser    http://192.168.0.16    chrome
+    Open Browser    http://192.168.0.18/dolibarr/    chrome
     Input Text    xpath= //*[@id="username"]    ${Login}
     Input Password    xpath= //*[@id="password"]    ${Password}
     Click Button    xpath= //*[@id="login_line2"]/input
