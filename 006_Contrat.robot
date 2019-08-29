@@ -7,7 +7,7 @@ ${password}       admin
 
 *** Test Cases ***
 CT-Connexion
-    Open browser    http://192.168.0.18/dolibarr/    chrome
+    Open browser    http://192.168.0.18/dolibarr    chrome
     Sleep    2s
     Click Element    xpath=//*[@id="username"]
     Input Text    xpath=//*[@id="username"]    ${login}
