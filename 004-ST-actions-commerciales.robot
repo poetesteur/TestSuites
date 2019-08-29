@@ -22,14 +22,13 @@ CT-SN-nouvelle_commande_client
     ...    Données sorties : Fiche proposition brouillon
     ...    Post-conditions : la proposition est créée
     ...    Résultat attendu : la fiche proposition clonable et supprimable s’affiche
-    Click Element    //*[@id="mainmenua_commercial"]/span
-    Click Element    //*[@id="id-left"]/div/div[5]/div[3]/a
+    Click Element    //*[@id="mainmenutd_commercial"]/div/a[1]/div
+    Click Element    //*[@id="id-left"]/div/div[4]/div[3]/a
     #champs déroulant Tiers
-    Click Element    //*[@id="id-right"]/div/form/div[2]/table/tbody/tr[3]/td[2]/span/span[1]/span
+    Click Element    //*[@id="id-right"]/div/form/div[2]/table/tbody/tr[3]/td[2]/span/span[1]/span/span[2]
     Input Text    //*[@id="mainbody"]/span/span/span[1]/input    Client_1
     Press key    //*[@id="mainbody"]/span/span/span[1]/input    \\13
     #selection date
-    Click Element    //*[@id="reButtonNow"]
     #boutton créer
     Click Element    //*[@id="id-right"]/div/form/div[3]/input[1]
     Page Should Contain    \    Fiche Commande
@@ -41,7 +40,7 @@ CT-SN-nouvelle_commande_fournisseur
     ...    Post-conditions : le brouillon de commande est créé
     ...    Résultat attendu : le système affiche la ‘fiche commande’ clonable et supprimable
     Click Element    //*[@id="mainmenua_commercial"]/span
-    Click Element    //*[@id="id-left"]/div/div[6]/div[3]/a
+    Click Element    //*[@id="id-left"]/div/div[5]/div[3]/a
     #champs déroulant supplier
     Click Element    //*[@id="id-right"]/div/form/div[2]/table/tbody/tr[2]/td[2]/span/span[1]/span/span[2]
     Input Text    //*[@id="mainbody"]/span/span/span[1]/input    Fournisseur_1
@@ -52,7 +51,7 @@ CT-SN-nouvelle_commande_fournisseur
 
 CT-SE-nouvelle_commande_client
     Click Element    //*[@id="mainmenua_commercial"]/span
-    Click Element    //*[@id="id-left"]/div/div[5]/div[3]/a
+    Click Element    //*[@id="id-left"]/div/div[4]/div[3]/a
     #pas de selection de client
     Click Element    //*[@id="reButtonNow"]
     #boutton créer
@@ -60,7 +59,7 @@ CT-SE-nouvelle_commande_client
     #message erreur
     Page Should Contain Element    //*[@id="mainbody"]/div[7]/div/div[2]
     Click Element    //*[@id="mainbody"]/div[7]/div/a
-    Sleep    1s
+    Sleep    5s
 
 deconnexion
-    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[4]/div/a/span
+    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[3]/div/a

@@ -5,11 +5,11 @@ Library           SeleniumLibrary
 ${Login}          admin
 ${Password}       admin
 ${StockPDT-01}    50
-${RefProduit}     PDT-01
+${RefProduit}     produit_1
 
 *** Test Cases ***
 CT-SN-01-Connexion
-    Open Browser    http://192.168.0.16    chrome
+    Open Browser    http://192.168.0.18/dolibarr    chrome
     Input Text    xpath= //*[@id="username"]    ${Login}
     Input Password    xpath= //*[@id="password"]    ${Password}
     Click Button    xpath= //*[@id="login_line2"]/input
@@ -23,13 +23,15 @@ CT-SN-CreerStockProduit
     #...    Post-condition : le produit est créé avec son stock et emplacement défini
     #...    Résultat attendu : Le stock produit est créé et modifiable dans BDD
     Click Element    //*[@id="mainmenutd_products"]/div/a[1]
-    Click Element    //*[@id="id-left"]/div/div[4]/div[3]/a
+    Click Element    //*[@id="id-left"]/div/div[3]/div[3]/a
     Input Text    //*[@id="ref"]    ${RefProduit}
-    Input Text    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[2]/td[2]/input    P1
+    Input Text    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[2]/td[2]/input    p1
     Click Element    //*[@id="id-right"]/div/form/div[2]/table[2]/tbody/tr[1]/td[2]/input
     Input Text    //*[@id="id-right"]/div/form/div[2]/table[2]/tbody/tr[1]/td[2]/input    100
-    #Click Element    //*[@id="mainbody"]/div[5]/div[3]/div[2]/a[1]
+    # Creer brouillon
     Click Element    //*[@id="id-right"]/div/form/div[3]/input[1]
+    Sleep    2s
+    # ????
     Click Element    //*[@id="stock"]
     Click Element    //*[@id="id-right"]/div/div[3]/a[1]
     Input Text    //*[@id="nbpiece"]    ${StockPDT-01}
@@ -42,7 +44,7 @@ CT-SN-CreerStockProduit
 
 CT-SE-CreerStockProduit
     Click Element    //*[@id="mainmenutd_products"]/div/a[1]
-    Click Element    //*[@id="id-left"]/div/div[4]/div[3]/a
+    Click Element    //*[@id="id-left"]/div/div[3]/div[3]/a
     Input Text    //*[@id="id-right"]/div/form/div[2]/table[1]/tbody/tr[2]/td[2]/input    P1
     Click Element    //*[@id="id-right"]/div/form/div[3]/input[1]
     Page should contain    Le champ 'Réf.' est obligatoire
@@ -51,9 +53,9 @@ CT-SN-TransfererStock
     #Menu produit
     Click Element    //*[@id="mainmenutd_products"]/div/a[1]
     #Liste des produits
-    Click Element    //*[@id="id-left"]/div/div[4]/div[4]/a
-    #PDT-01
-    Click Element    //*[@id="id-right"]/div/form/div[2]/table/tbody/tr[3]/td[1]/a
+    Click Element    //*[@id="id-left"]/div/div[3]/div[4]/a
+    #produit_1
+    Click Element    //*[@id="id-right"]/div/form/div/table/tbody/tr[3]/td[1]/a
     #Onglet Stock
     Click Element    //*[@id="stock"]
     #Transferer Stock
@@ -75,4 +77,4 @@ CT-SN-TransfererStock
 
 Deconnexion
     Sleep    5s
-    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[4]/div/a/span
+    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[3]/div/a
