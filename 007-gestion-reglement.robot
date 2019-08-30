@@ -12,7 +12,6 @@ ${produit}        produit_1
 
 *** Test Cases ***
 connexion
-    Sleep    5s
     Open browser    http://192.168.0.18/dolibarr    chrome
     Click element    Xpath=//*[@id="username"]
     Input Text    Xpath=//*[@id="username"]    ${UserName}
