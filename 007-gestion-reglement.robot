@@ -7,7 +7,7 @@ ${pwd}            admin
 ${ccp}            compte_1
 ${client}         Client_1
 ${espace}         Billing and payment area
-${formulaire}     Billing and payment area
+${formulaire}     New invoice
 ${produit}        produit_1
 
 *** Test Cases ***
