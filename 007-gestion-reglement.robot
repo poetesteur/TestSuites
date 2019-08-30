@@ -89,7 +89,7 @@ CT-SN-creer-facture-client
     # Confirmer la validation de facture
     Click Button    //*[@id="mainbody"]/div[15]/div[3]/div/button[1]
     # Vérifier que la facture passe en status impayée
-    Element text Should Be    //*[@id="id-right"]/div/div[2]/div[1]/div/div[2]    Impayée
+    Element text Should Be    //*[@id="id-right"]/div/div[2]/div[1]/div/div[2]    Not paid
 
 CT-SN-reglement-facture
     [Documentation]    Postcondition: avoir une facture impayée, avoir un compte créé
