@@ -117,7 +117,7 @@ CT-SN-reglement-facture
     #valider paiement
     click element    //*[@id="payment_form"]/table[2]/tbody/tr[3]/td[3]/input
     Sleep    3s
-    Page should contain    \    Payée
+    Element Should Contain    //*[@id="id-right"]/div/div[2]/div[1]/div/div[2]/span    Paid
 
 CT-SE-creer-facture-client
     [Documentation]    \#Précondition : être connecté à Dolibarr en tant qu’administrateur, avoir créé ‘journal comptable’, avoir ‘Client_1’ créé, avoir un ‘compte’ créé    #Données entrées : client, type, date facturation, condition de règlement    #Données sorties : Fiche facture client    #Post-conditions : la fiche de règlement est créée    #Résultat attendu : Le système affiche la fiche de règlement, clonable et supprimable
