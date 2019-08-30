@@ -71,6 +71,7 @@ CT-SN-TransfererStock
     #Nombre de pièces à tranferer.
     Input Text    //*[@id="id-right"]/div/form/div[2]/table/tbody/tr[2]/td[2]/input    30
     Click Element    //*[@id="id-right"]/div/form/div[3]/input[1]
+	Sleep    2s
     Page should contain    50
     Page should contain    30
     Page should contain    20
