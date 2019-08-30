@@ -6,12 +6,13 @@ ${UserName}       admin
 ${pwd}            admin
 ${ccp}            compte_1
 ${client}         Client_1
-${espace}         Espace facturation et paiement
+${espace}         Billing and payment area
 ${formulaire}     Nouvelle facture
 ${produit}        produit_1
 
 *** Test Cases ***
 connexion
+    Sleep    5s
     Open browser    http://192.168.0.18/dolibarr    chrome
     Click element    Xpath=//*[@id="username"]
     Input Text    Xpath=//*[@id="username"]    ${UserName}
