@@ -121,6 +121,7 @@ CT-SE-creer-facture-client
     [Documentation]    \#Précondition : être connecté à Dolibarr en tant qu’administrateur, avoir créé ‘journal comptable’, avoir ‘Client_1’ créé, avoir un ‘compte’ créé    #Données entrées : client, type, date facturation, condition de règlement    #Données sorties : Fiche facture client    #Post-conditions : la fiche de règlement est créée    #Résultat attendu : Le système affiche la fiche de règlement, clonable et supprimable
     # Cliquer sur l'onglet Facturation/paiement
     Click Element    //*[@id="mainmenua_billing"]/span
+    Sleep    2s
     # Cliquer sur Nouvelle facture sous Factures clients
     click element    //*[@id="id-left"]/div/div[3]/div[3]
     # Vérifier que la page de formulaire de création de facture
@@ -128,7 +129,7 @@ CT-SE-creer-facture-client
     Sleep    2s
     # Sélection du Client
     # Choix des Conditions de règlement
-    # Valider la créatiofn du brouiinpullon
+    # Valider la créatiofn du brouillon
     Click Button    //*[@id="id-right"]/div/form/div[3]/input[1]
     # Vérifier le message d'erreur lors de la validation
     Element Should Be Visible    //*[@id="mainbody"]/div[7]/div/div[2]/div
