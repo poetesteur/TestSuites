@@ -113,8 +113,10 @@ CT-SN-reglement-facture
     Click Element    //*[@id="payment_form"]/table/tbody/tr[2]/td[7]/input[2]
     Input Text    //*[@id="payment_form"]/table/tbody/tr[2]/td[7]/input[2]    120
     Click Element    //*[@id="payment_form"]/div[3]/input[2]
+    Sleep    3s
     #valider paiement
     click element    //*[@id="payment_form"]/table[2]/tbody/tr[3]/td[3]/input
+    Sleep    3s
     Page should contain    \    Payée
 
 CT-SE-creer-facture-client
