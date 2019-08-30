@@ -18,7 +18,7 @@ CT-SN-Nouvelle-proposition-commerciale
     #Post-conditions : la proposition est créée
     #Résultat attendu : la fiche proposition clonable et supprimable s’affiche
     # Connexion
-    Open Browser    http://192.168.0.18/dolibarr    chrome
+    Open Browser    http://192.168.0.18/dolibarr    chromes
     Input Text    //*[@id="username"]    ${login}
     Input Text    //*[@id="password"]    ${password}
     Click Button    //*[@id="login_line2"]/input
