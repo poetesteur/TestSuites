@@ -107,11 +107,10 @@ CT-SN-reglement-facture
     Click Element    //*[@id="selectpaiementcode"]/option[3]
     Click Element    //*[@id="payment_form"]/div[3]/input[2]
     #compte a créditer
-    click element    //*[@id="selectaccountid"]
-    click element    //*[@id="selectaccountid"]/option[2]
+    Select From List By Value    //*[@id="selectaccountid"]    2
     #montant réglé
     Click Element    //*[@id="payment_form"]/table/tbody/tr[2]/td[7]/input[2]
-    Input Text    //*[@id="payment_form"]/table/tbody/tr[2]/td[7]/input[2]    100
+    Input Text    //*[@id="payment_form"]/table/tbody/tr[2]/td[7]/input[2]    120
     Click Element    //*[@id="payment_form"]/div[3]/input[2]
     #valider paiement
     click element    //*[@id="payment_form"]/table[2]/tbody/tr[3]/td[3]/input
