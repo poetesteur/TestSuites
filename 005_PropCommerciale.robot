@@ -42,11 +42,6 @@ CT-SN-Nouvelle-proposition-commerciale
     # Vérifier que la proposition est créée
     Element Should Be Visible    //*[@id="id-right"]/div/div[3]/div[1]/a
     Element Should Be Enabled    //*[@id="id-right"]/div/div[3]/div[2]/a
-    # Deconnexion
-    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[3]/div/a
-    # Vérifier que la page de login s'ouvre
-    Location Should Be    http://192.168.0.18/dolibarr/index.php
-    Close All Browsers
 
 CT-SN-Nouvelle-demande-prix
     #[Documentation]
@@ -55,13 +50,6 @@ CT-SN-Nouvelle-demande-prix
     #Données sorties : Fiche demande
     #Post-conditions : le demande de prix est créée
     #Résultat attendu : la fiche demande s’affiche, clonable et supprimable
-    # Connexion
-    Open Browser    http://192.168.0.18/dolibarr    chrome
-    Input Text    //*[@id="username"]    ${login}
-    Input Text    //*[@id="password"]    ${password}
-    Click Button    //*[@id="login_line2"]/input
-    # Vérifier que la page d'accueil s'ouvre
-    #Location Should Be    http://192.168.0.18/index.php?mainmenu=home
     # Créer nouvelle demande prix
     # Cliquer sur l'onglet Commercial
     Click Element    //*[@id="mainmenua_commercial"]/span
@@ -78,11 +66,6 @@ CT-SN-Nouvelle-demande-prix
     Click Button    //*[@id="id-right"]/div/form/div[3]/input[1]
     # Vérifier que la demande est créée et que la page de fiche de demande est ouverte
     Element Should Be Visible    //*[@id="comm"]
-    # Deconnexion
-    Click Element    //*[@id="id-top"]/div[2]/div[2]/div[3]/div/a
-    # Vérifier que la page de login s'ouvre
-    Location Should Be    http://192.168.0.18/dolibarr/index.php
-    Close All Browsers
 
 CT-SE-Nouvelle-demande-prix
     #[Documentation]
@@ -91,13 +74,6 @@ CT-SE-Nouvelle-demande-prix
     #Données sorties : Message d’erreur
     #Post-conditions : la demande n’est pas créée
     #Résultat attendu : Le système affiche un message d’erreur ‘champ supplier obligatoire ‘
-    # Connexion
-    Open Browser    http://192.168.0.18/dolibarr    chrome
-    Input Text    //*[@id="username"]    ${login}
-    Input Text    //*[@id="password"]    ${password}
-    Click Button    //*[@id="login_line2"]/input
-    # Vérifier que la page d'accueil s'ouvre
-    #Location Should Be    http://192.168.0.18/index.php?mainmenu=home
     # Créer nouvelle demande prix
     # Cliquer sur l'onglet Commercial
     Click Element    //*[@id="mainmenua_commercial"]/span
