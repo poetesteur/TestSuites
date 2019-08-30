@@ -45,7 +45,7 @@ CT-SN-Nouvelle-proposition-commerciale
     # Deconnexion
     Click Element    //*[@id="id-top"]/div[2]/div[2]/div[3]/div/a
     # Vérifier que la page de login s'ouvre
-    Location Should Be    http://192.168.0.18/dolibarr
+    Location Should Be    http://192.168.0.18/dolibarr/index.php
     Close All Browsers
 
 CT-SN-Nouvelle-demande-prix
@@ -81,7 +81,7 @@ CT-SN-Nouvelle-demande-prix
     # Deconnexion
     Click Element    //*[@id="id-top"]/div[2]/div[2]/div[3]/div/a
     # Vérifier que la page de login s'ouvre
-    Location Should Be    http://192.168.0.18/dolibarr
+    Location Should Be    http://192.168.0.18/dolibarr/index.php
     Close All Browsers
 
 CT-SE-Nouvelle-demande-prix
@@ -117,5 +117,5 @@ CT-SE-Nouvelle-demande-prix
     # Deconnexion
     Click Element    //*[@id="id-top"]/div[2]/div[2]/div[3]/div/a
     # Vérifier que la page de login s'ouvre
-    Location Should Be    http://192.168.0.18/dolibarr
+    Location Should Be    http://192.168.0.18/dolibarr/index.php
     Close All Browsers
