@@ -7,7 +7,7 @@ ${password}       admin
 ${client}         Client_1
 ${duree}          30
 ${fournisseur}    Fournisseur_1
-${erreur}         Le champ 'Fournisseur' est obligatoire
+${erreur}         Field 'Vendor' is required
 
 *** Test Cases ***
 CT-SN-Nouvelle-proposition-commerciale
