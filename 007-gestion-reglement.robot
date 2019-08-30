@@ -50,10 +50,11 @@ CT-SN-creer-facture-client
     # Vérifier que la page d'espace facturation et paiement est ouverte
     Element Should Contain    //*[@id="id-right"]/div/table/tbody/tr/td[2]/div    ${espace}
     # Cliquer sur Nouvelle facture sous Factures clients
-    Click Element    //*[@id="id-left"]/div/div[3]/div[3]
+    Click Element    //*[@id="id-left"]/div/div[3]/div[3]/a
     # Vérifier que la page de formulaire de création de facture
     Element Should Contain    //*[@id="id-right"]/div/table/tbody/tr/td[2]/div    ${formulaire}
     # Sélection du Client
+    Sleep    2s
     Click Element    //*[@id="id-right"]/div/form/div[2]/table/tbody/tr[2]/td[2]/span/span[1]/span/span[2]
     Input Text    //*[@id="mainbody"]/span/span/span[1]/input    ${client}
     Press Key    //*[@id="mainbody"]/span/span/span[1]/input    \\13
@@ -121,10 +122,10 @@ CT-SE-creer-facture-client
     # Cliquer sur l'onglet Facturation/paiement
     Click Element    //*[@id="mainmenua_billing"]/span
     click element    //*[@id="id-left"]/div/div[3]/div[3]
-    # Vérifier que la page d'espace facturation et paiement est ouverte
     # Cliquer sur Nouvelle facture sous Factures clients
     # Vérifier que la page de formulaire de création de facture
     Element Should Contain    //*[@id="id-right"]/div/table/tbody/tr/td[2]/div    ${formulaire}
+    Sleep    2s
     # Sélection du Client
     # Choix des Conditions de règlement
     # Valider la créatiofn du brouiinpullon
